@@ -1,0 +1,29 @@
+site_name: GUIA - Documentação Técnica
+site_author: IEEE CIS UnB
+
+nav:
+  - 'Visão Geral': 'index.md'
+  - 'Getting Started': 'getting-started.md'
+  - 'Requisitos': 'requisitos.md'
+  - 'Arquitetura do Sistema': 'arquitetura.md'
+  - 'Pipeline de Dados': 'pipeline-dados.md'
+  - 'Backend e Infraestrutura': 'backend-infra.md'
+  - 'Roadmap': 'roadmap.md'
+
+theme:
+  name: material
+  language: pt
+  palette:
+    # Palette toggle for light/dark mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.top
+    - toc.integrate
