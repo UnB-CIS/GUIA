@@ -29,6 +29,8 @@ O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas
 | :--- | :--- | :--- | :--- |
 | **#1** | Configuração Inicial do Projeto | Configurar repositórios, board de gestão e ambiente de desenvolvimento. | Nenhuma |
 | **#2** | Modelagem e Migração do Banco de Dados v1 | Definir e implementar a primeira versão do schema do banco de dados. | #1 |
+| **#28** | Protótipo de Alta Fidelidade do App | Criar telas navegáveis com layout refinado no Figma ou similar. Baseado nos principais fluxos da aplicação mobile. | Nenhuma |
+| **#29** | Protótipo de Alta Fidelidade do Dashboard | Criar telas navegáveis com layout refinado no Figma ou similar. | Nenhuma |
 
 #### **Sprint 2: Autenticação & CI**
 
@@ -37,6 +39,7 @@ O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas
 | **#3** | API de Autenticação (Backend) | Criar os endpoints para cadastro e login de usuários. | #2 |
 | **#4** | Fluxo de Autenticação (Frontend) | Criar as telas e a lógica no app para o usuário se autenticar. | #3 |
 | **#5** | Pipeline de CI Básico | Automatizar a verificação de qualidade do código a cada PR. | #1 |
+| **#29** | Testes de Usabilidade com Protótipo | Conduzir sessões de teste com usuários reais usando os protótipos de alta fidelidade para coletar feedback antecipado. | #28 |
 
 #### **Sprint 3: Ingestão de Reports**
 
@@ -50,7 +53,7 @@ O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas
 | Issue | Título | Descrição | Dependências |
 | :--- | :--- | :--- | :--- |
 | **#8** | Script de Coleta de Dados (Cold Start) | Criar o script para popular o banco de dados com imagens do Street View. | #2 |
-| **#9** | Povoamento de Dados Geográficos | Popular o banco com a malha viária e a grade hexagonal. | #2 |
+| **#9** | Povoamento de Dados Geográficos | Popular o banco com a malha viária e a grade hexagonal. | #2, #8 |
 
 #### **Sprint 5: Setup do Motor de Roteamento**
 
@@ -73,6 +76,7 @@ O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas
 | :--- | :--- | :--- | :--- |
 | **#15**| Microsserviço de Image-to-Text | Criar o serviço que converte imagem em descrição textual usando Qwen. | #6 |
 | **#16**| Integração do Image-to-Text | Integrar o novo microsserviço no fluxo de ingestão de reports. | #15 |
+| **#31**| Processamento dos Dados de Cold Start | Passar os dados do cold start pelo serviço de gração de risk score | #16, #9|
 
 #### **Sprint 8: Pipeline de IA - Extração de Risco**
 
@@ -109,3 +113,10 @@ O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas
 | **#25**| Testes Beta com Usuários | Coletar feedback do mundo real sobre a aplicação completa. | #14, #24 |
 | **#26**| Otimização e Correção de Bugs | Refinar o produto com base no feedback e em análises de performance. | #25 |
 | **#27**| Finalização da Documentação | Deixar a documentação técnica completa e atualizada no MkDocs. | #26 |
+
+#### **Sprint 13: LGPD**
+
+| Issue | Título | Descrição | Dependências |
+| :--- | :--- | :--- | :--- |
+| **#30**| Política de Privacidade e Consentimento | Adicionar termos de consentimento claros e documentar o uso de dados. | Nenhuma |
+| **#31**| Anonimização de Dados Pessoais | Garantir que dados dos usuários possam ser anonimizados ou removidos sob solicitação. | #2 |
