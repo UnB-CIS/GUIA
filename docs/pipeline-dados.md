@@ -1,7 +1,8 @@
-# Pipeline de Análise e Predição com IA
+# Pipeline de Extração de Risk Score
 
-![PIPELINE](assets/PIPELINE.png)
-[Download Excalidraw file](assets/PIPELINE.excalidraw)
+![PIPELINE](assets/Pipeline_report.jpg)
+
+[Figura 1 - Diagrama de Fluxo de Dados](assets/Fluxo_report.drawio)
 
 
 ## 1. Extração de Features com VLMs
@@ -10,20 +11,26 @@ Em vez de usar uma CNN tradicional, adotamos uma abordagem baseada em Modelos de
 
 ### Etapa 1.1: Image-to-Text (Qwen)
 
-Uma imagem da rua (do usuário ou Street View) é convertida em uma descrição textual detalhada. Isso captura o contexto e a relação entre os objetos na cena.
+**Entrada:** imagem de uma rua (fornecida pelo usuário ou obtida via Street View).
 
-### Etapa 1.2: Extração Estruturada (Gemini)
+**Processo:** a imagem é convertida em um relatório detalhado de CPTED, no qual o modelo gera:
 
-A descrição textual alimenta um LLM (Gemini) que, guiado por um prompt baseado nos princípios de **CPTED** (Crime Prevention Through Environmental Design), extrai e estrutura os fatores de risco em um formato JSON.
+Notas de 0 a 10 para cada um dos seis critérios de avaliação.
 
-## 2. Análise Contextual com GNNs
+Comentários explicativos que justificam as notas atribuídas.
 
-O `risk_score` local de cada ponto é útil, mas a GNN nos permite entender como o risco se propaga.
+### Etapa 1.2: Risk Score
 
-### Arquitetura do Modelo (D-MPNN)
+Com base nas notas fornecidas na etapa anterior, o sistema calcula um Risk Score agregado, sintetizando o nível de risco da área analisada.
 
-Utilizamos uma **Directed Message-Passing Neural Network (D-MPNN)**, uma arquitetura de ponta que opera sobre as **arestas direcionadas (vínculos)** do grafo. Diferente de outras GNNs, essa abordagem previne que mensagens voltem pelo mesmo caminho, reduzindo ruído e melhorando a qualidade da representação final do grafo.
+O cálculo considera o peso de cada critério de CPTED, resultando em uma métrica única e comparável entre diferentes locais.
 
-## 3. Solução de Cold Start
+## 2. Solução de Cold Start
 
-Para o treinamento inicial, antes de termos dados de usuários, usamos a API do Street View para coletar imagens em massa, garantindo que o modelo seja funcional desde o primeiro dia.
+Para superar o problema de falta inicial de dados de usuários, adotamos a seguinte estratégia:
+
+Utilização da API do Google Street View para coletar imagens em massa.
+
+Isso permite treinar e validar o pipeline antes da entrada de dados reais de usuários.
+
+Assim, o modelo já está funcional e útil desde o primeiro dia de uso.

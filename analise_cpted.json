@@ -1,0 +1,32 @@
+[
+    {
+        "criterio": "Vigilância Natural (V)",
+        "nota": 8,
+        "comentario": "A rua está bem iluminada, o que facilita a vigilância natural. No entanto, a ausência de pessoas ou atividades durante a noite pode reduzir a percepção de vigilância."
+    },
+    {
+        "criterio": "Controle Natural de Acesso (A)",
+        "nota": 7,
+        "comentario": "Existem barreiras físicas, como muros e portões, que limitam o acesso indesejado. No entanto, a falta de portões ou entradas definidas pode permitir acesso não autorizado."
+    },
+    {
+        "criterio": "Reforço Territorial (T)",
+        "nota": 6,
+        "comentario": "Há sinais de propriedade, como muros e jardins, mas a falta de sinalização clara pode dificultar a identificação de áreas privadas."
+    },
+    {
+        "criterio": "Manutenção (M)",
+        "nota": 8,
+        "comentario": "O espaço está limpo e conservado, sem pichações ou sinais de abandono. No entanto, a ausência de pessoas durante a noite pode sugerir uma falta de manutenção regular."
+    },
+    {
+        "criterio": "Atividades Legítimas (AL)",
+        "nota": 5,
+        "comentario": "A rua parece estar vazia, o que pode indicar que não há atividades legítimas ocorrendo regularmente. A falta de comércio, lazer ou convivência pode aumentar o risco de criminalidade."
+    },
+    {
+        "criterio": "Suporte para Atividades Sociais (S)",
+        "nota": 4,
+        "comentario": "Não há estruturas que favoreçam interação comunitária, como praças, bancos ou quadras. A ausência de áreas para atividades sociais pode contribuir para a sensação de isolamento e insegurança."
+    }
+]
