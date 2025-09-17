@@ -1,111 +1,208 @@
 # Roadmap de Desenvolvimento
 
-O projeto é gerenciado em Sprints de 2 semanas. A tabela abaixo resume as metas e os entregáveis chave para a entrega da Versão 1.0.
+## Backlog de Issues
 
-### FASE 1: MVP Funcional (6 Meses)
+### Infraestrutura & DevOps (guia-infra)
 
-| Sprint      | Meta Principal (Sprint Goal)                                    | Entregáveis Chave                                                                      |
-|-------------|-----------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| **1-2** | Configurar o ambiente de desenvolvimento e a base de dados.       | Ambiente Docker funcional, Schema do PostGIS v1, Backlog do projeto.                   |
-| **3-4** | Implementar o fluxo de autenticação e submissão de reports.    | Endpoints de auth/reports, Telas de login e submissão no app, Dados salvos no DB/Storage.  |
-| **5-6** | Entregar o MVP com o fluxo de roteamento básico de ponta a ponta.  | Instância do Valhalla, Microsserviço de rota, App desenhando a rota no mapa **(MVP v1)**. |
+-   `[Infra] 1:` Configurar ambiente de desenvolvimento local com Docker Compose.
+-   `[Infra] 2:` Estruturar pipeline de CI base com GitHub Actions.
+-   `[Infra] 3:` Escrever Dockerfile e pipeline de CI para `guia-backend`.
+-   `[Infra] 4:` Escrever Dockerfile e pipeline de CI para `guia-report-processing`.
+-   `[Infra] 5:` Escrever Dockerfile e pipeline de CI para `guia-routing-engine`.
+-   `[Infra] 6:` Provisionar cluster Kubernetes (K8s) e configurar acesso `kubectl`. **CURVA DE APRENDIZAGEM**
+-   `[Infra] 7:` Criar manifestos K8s (Deployment, Service, ConfigMap) para `guia-backend`. **CURVA DE APRENDIZAGEM**
+-   `[Infra] 8:` Criar manifestos K8s para `guia-report-processing`.  **CURVA DE APRENDIZAGEM**
+-   `[Infra] 9:` Criar manifestos K8s para `guia-routing-engine` (com PersistentVolumeClaim). **CURVA DE APRENDIZAGEM**
+-   `[Infra] 10:` Configurar NGINX Ingress Controller para roteamento de APIs.
+-   `[Infra] 11:` Configurar segredos (secrets) no K8s para credenciais. **CURVA DE APRENDIZAGEM**
+-   `[Infra] 12:` Implementar deploy de Prometheus e Grafana para monitoramento **OPICIONAL**
 
-### FASE 2: Refactoring (6 Meses)
+### Banco de Dados (guia-db)
 
-| Sprint      | Meta Principal (Sprint Goal)                                    | Entregáveis Chave                                                                      |
-|-------------|-----------------------------------------------------------------|----------------------------------------------------------------------------------------|
-| **7-8** | Integrar a pipeline de IA e o monitoramento do sistema.           | Pipeline de `Image-to-Text` + `Info Extraction` funcional, Dashboard de monitoramento (Grafana). |
-| **9-10** | Fazer o roteamento ser influenciado pelo `risk_score` da IA e GNN. | Modelo GNN v0 treinado, Roteamento com pesos de risco dinâmicos, Início dos testes beta. |
-| **11-12** | Polir a aplicação com base no feedback e preparar o lançamento.     | App com UI/UX refinada, Documentação técnica finalizada, **Versão 1.0 do GUIA pronta.** |
+-   `[Dados] 1:` Modelagem do Banco de dados com `schemas` e `configs` do PostGIS.
+-   `[Dados] 2:` Finalizar e commitar schema do PostGIS (tabelas: `users`, `reports`, `h3_risk_index`).
+-   `[Dados] 3:` Implementar pipeline de migração de schema (ex: com Alembic).
+-   `[Dados] 4:` Desenvolver script para popular a tabela `h3_risk_index` com a geometria da grade H3.
 
+### Backend (guia-backend)
 
------
+-   `[Backend] 1:` Implementar endpoints de autenticação JWT (`/auth/register`, `/auth/login`).
+-   `[Backend] 2:` Proteger endpoints da aplicação com middleware de autenticação JWT.
+-   `[Backend] 3:` Implementar endpoint `POST /api/reports` para receber metadados de ocorrências.
+-   `[Backend] 4:` Implementar endpoint para gerar URL de upload pré-assinada para o Object Storage.
+-   `[Backend] 5:` Implementar a publicação de mensagem na fila (RabbitMQ) após confirmação do upload. **CURVA DE APRENDIZAGEM**
+-   `[Backend] 6:` Implementar endpoint `GET /api/heatmap` para servir dados da tabela `h3_risk_index`.
 
-### **Detalhamento das Sprints**
+### Processamento de Reports com IA (guia-report-processing)
 
-#### **Sprint 1: Fundação & Setup**
+-   `[IA] 1:` Construir o consumidor da fila para escutar novas tarefas de processamento.
+-   `[IA] 2:` Implementar a integração com o modelo Image-to-Text.
+-   `[IA] 3:` Implementar a integração com o modelo de Extração de Informação.
+-   `[IA] 4:` Implementar o algoritmo para cálculo do `risk_score`.
+-   `[IA] 5:` Implementar a lógica para salvar/atualizar o `risk_score` na tabela `h3_risk_index`.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#1** | Configuração Inicial do Projeto | Configurar repositórios, board de gestão e ambiente de desenvolvimento. | Nenhuma |
-| **#2** | Modelagem e Migração do Banco de Dados v1 | Definir e implementar a primeira versão do schema do banco de dados. | #1 |
+### Motor de Roteamento (guia-routing-engine)
 
-#### **Sprint 2: Autenticação & CI**
+-   `[Rota] 1:` Fazer um fork do repositório oficial do Valhalla.
+-   `[Rota] 2:` Realizar profiling de performance para identificar gargalos no código C++.
+-   `[Rota] 3:` Refatorar o código para remover perfis de custo não utilizados (ex: bicicleta, pedestre).
+-   `[Rota] 4:` Pesquisar a viabilidade de modificar o `GraphBuilder` em C++ para consultar o PostGIS diretamente.
+-   `[Rota] 5:` Definir o contrato da API (`/route`) com OpenAPI/Swagger.
+-   `[Rota] 6:` Estruturar o serviço de API.
+-   `[Rota] 7:` Implementar a validação de entrada da requisição.
+-   `[Rota] 8:` Implementar a lógica de proxy para o processo Valhalla.
+-   `[Rota] 9:` Implementar tratamento de erros e timeouts do Valhalla.
+-   `[Rota] 10:` Implementar endpoint de health check (`/healthz`). **CURVA DE APRENDIZAGEM**
+-   `[Rota] 11:` Instrumentar o serviço com métricas Prometheus. **OPICIONAL**
+-   `[Rota] 12:` Escrever suíte de testes de integração para o fluxo da API.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#3** | API de Autenticação (Backend) | Criar os endpoints para cadastro e login de usuários. | #2 |
-| **#4** | Fluxo de Autenticação (Frontend) | Criar as telas e a lógica no app para o usuário se autenticar. | #3 |
-| **#5** | Pipeline de CI Básico | Automatizar a verificação de qualidade do código a cada PR. | #1 |
+### Map Builder (Job Assíncrono - map-builder)
 
-#### **Sprint 3: Ingestão de Reports**
+-   `[Builder] 1:` Criar script `enrich_osm_with_risk.py`.
+-   `[Builder] 2:` Criar script `valhalla_build_tiles.sh`.
+-   `[Builder] 3:` Criar o workflow de GitHub Actions agendado (Cron). **CURVA DE APRENDIZAGEM**
+-   `[Builder] 4:` Adicionar passo ao workflow para upload do `valhalla_tiles.tar` para Object Storage.
+-   `[Builder] 5:` Adicionar passo ao workflow para disparar o Rolling Update via `kubectl apply`.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#6** | API de Ingestão de Reports (Backend) | Desenvolver o endpoint para receber as ocorrências dos usuários. | #2 |
-| **#7** | Fluxo de Submissão de Reports (Frontend) | Criar a interface no app para o usuário enviar um report. | #4, #6 |
+### Aplicativo Mobile (guia-mobile)
 
-#### **Sprint 4: Coleta de Dados & Geohashing**
+-   `[Mobile] 1:` Implementar telas e fluxo de autenticação.
+-   `[Mobile] 2:` Implementar fluxo de submissão de reports.
+-   `[Mobile] 3:` Implementar a interface do mapa (com H3 Uber, utilizar exemplo da 99).
+-   `[Mobile] 4:` Implementar a UI para solicitar uma rota.
+-   `[Mobile] 5:` Implementar a chamada ao `GET /api/route` e desenhar a polilinha no mapa.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#8** | Script de Coleta de Dados (Cold Start) | Criar o script para popular o banco de dados com imagens do Street View. | #2 |
-| **#9** | Povoamento de Dados Geográficos | Popular o banco com a malha viária e a grade hexagonal. | #2 |
+### Dashboard Web (guia-web)
 
-#### **Sprint 5: Setup do Motor de Roteamento**
+-   `[Web] 1:` Estruturar o projeto base do dashboard (ex: com React, ou HTML puro).
+-   `[Web] 2:` Implementar a interface do H3.
+-   `[Web] 3:` Implementar a lógica para consumir o endpoint `GET /api/H3`.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#10** | Configuração do NGINX e Fila de Tarefas | Preparar a infraestrutura de mensageria e o proxy reverso. | #1 |
-| **#11** | Containerização do Valhalla | Empacotar o motor de roteamento e o microsserviço em uma imagem Docker. | #10 |
+### Qualidade, Segurança & Documentação **CURVA DE APRENDIZAGEM**
 
-#### **Sprint 6: MVP de Roteamento (Fluxo Completo)**
+-   `[QA] 1:` Definir e documentar a estratégia de testes (Unit, Integration, E2E).
+-   `[QA] 2:` Implementar suíte de testes E2E que simula o fluxo completo.
+-   `[SEC] 1:` Configurar políticas de segurança no Ingress (ex: Rate Limiting).
+-   `[SEC] 2:` Implementar Network Policies no K8s para restringir a comunicação entre serviços.
+-   `[DOC] 1:` Gerar e publicar a documentação da API (via OpenAPI/Swagger).
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#12**| Lógica de Rota Assíncrona (Backend) | Orquestrar o pedido de rota usando a fila de tarefas. | #10 |
-| **#13**| Lógica do Microsserviço de Rota | Implementar o cálculo da rota no microsserviço. | #11, #12 |
-| **#14**| Roteamento no App (Frontend) | Permitir que o usuário solicite e veja a rota no mapa. | #12 |
+## Plano de Sprints (2 semanas por Sprint)
 
-#### **Sprint 7: Pipeline de IA - Image-to-Text**
+### Sprint 1: Fundação
+- `[Infra] 1:` Configurar ambiente de desenvolvimento local.
+- `[Dados] 1:` Modelagem do Banco de dados.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#15**| Microsserviço de Image-to-Text | Criar o serviço que converte imagem em descrição textual usando Qwen. | #6 |
-| **#16**| Integração do Image-to-Text | Integrar o novo microsserviço no fluxo de ingestão de reports. | #15 |
+### Sprint 2: Schema e Migração
+- `[Dados] 2:` Finalizar e commitar schema do PostGIS.
+- `[Dados] 3:` Implementar pipeline de migração de schema.
 
-#### **Sprint 8: Pipeline de IA - Extração de Risco**
+### Sprint 3: CI e Autenticação
+- `[Infra] 2:` Estruturar pipeline de CI base.
+- `[Backend] 1:` Implementar endpoints de autenticação JWT.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#17**| Microsserviço de Extração de Fatores | Criar o serviço que extrai fatores de risco do texto usando Gemini. | #16 |
-| **#18**| Orquestração da Pipeline de IA Completa | Integrar a extração e o cálculo do `risk_score` inicial. | #17 |
+### Sprint 4: Dockerização do Backend
+- `[Infra] 3:` Escrever Dockerfile e pipeline de CI para `guia-backend`.
+- `[Backend] 2:` Proteger endpoints com middleware JWT.
 
-#### **Sprint 9: Roteamento Inteligente**
+### Sprint 5: Início da Ingestão de Reports
+- `[Backend] 3:` Implementar endpoint `POST /api/reports`.
+- `[Backend] 4:` Implementar endpoint para gerar URL de upload pré-assinada.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#19**| Adaptação do Valhalla para Custo Dinâmico | Fazer o Valhalla usar o `risk_score` para influenciar as rotas. | #13, #18 |
-| **#20**| Testes de Validação do Roteamento | Garantir que as rotas estão efetivamente desviando de áreas de risco. | #19 |
+### Sprint 6: Fila de Processamento
+- `[Backend] 5:` Implementar a publicação de mensagem na fila (RabbitMQ).
+- `[IA] 1:` Construir o consumidor da fila.
 
-#### **Sprint 10: GNN - Preparação e Treinamento**
+### Sprint 7: Dockerização da IA
+- `[Infra] 4:` Escrever Dockerfile e pipeline de CI para `guia-report-processing`.
+- `[IA] 5:` Implementar a lógica para salvar/atualizar `risk_score` (mockado).
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#21**| Scripts de Extração de Grafo | Preparar os dados para alimentar o modelo GNN. | #2, #18 |
-| **#22**| Treinamento do Modelo GNN v0 | Treinar a primeira versão da GNN para contextualizar os `risk_scores`. | #21 |
+### Sprint 8: Autenticação Mobile
+- `[Mobile] 1:` Implementar telas e fluxo de autenticação.
+- `[DOC] 1:` Gerar e publicar a documentação da API.
 
-#### **Sprint 11: GNN - Inferência e Dashboard Web**
+### Sprint 9: Submissão de Reports Mobile
+- `[Mobile] 2:` Implementar fluxo de submissão de reports.
+- `[IA] 2:` Implementar a integração com o modelo Image-to-Text.
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#23**| Job de Inferência da GNN | Automatizar a atualização dos scores de risco contextualizados. | #22 |
-| **#24**| API e Dashboard Web | Criar a interface web para visualização dos mapas de calor. | #23 |
+### Sprint 10: IA - Extração de Info
+- `[IA] 3:` Implementar a integração com o modelo de Extração de Informação.
+- `[IA] 4:` Implementar o algoritmo para cálculo do `risk_score`.
 
-#### **Sprint 12: Testes, Polimento e Documentação Final**
+### Sprint 11: Fundação de Roteamento
+- `[Infra] 5:` Escrever Dockerfile e pipeline de CI para `guia-routing-engine`.
+- `[Rota] 5:` Definir o contrato da API (`/route`).
 
-| Issue | Título | Descrição | Dependências |
-| :--- | :--- | :--- | :--- |
-| **#25**| Testes Beta com Usuários | Coletar feedback do mundo real sobre a aplicação completa. | #14, #24 |
-| **#26**| Otimização e Correção de Bugs | Refinar o produto com base no feedback e em análises de performance. | #25 |
-| **#27**| Finalização da Documentação | Deixar a documentação técnica completa e atualizada no MkDocs. | #26 |
+### Sprint 12: Estrutura da API de Rota
+- `[Rota] 6:` Estruturar o serviço de API.
+- `[Rota] 8:` Implementar a lógica de proxy para o processo Valhalla.
+
+### Sprint 13: Validação e Erros de Rota
+- `[Rota] 7:` Implementar a validação de entrada da requisição.
+- `[Rota] 9:` Implementar tratamento de erros e timeouts do Valhalla.
+
+### Sprint 14: População de Dados e Mapa Mobile
+- `[Dados] 4:` Desenvolver script para popular a tabela `h3_risk_index`.
+- `[Mobile] 3:` Implementar a interface do mapa.
+
+### Sprint 15: Início do Map Builder
+- `[Builder] 1:` Criar script `enrich_osm_with_risk.py`.
+- `[Builder] 2:` Criar script `valhalla_build_tiles.sh`.
+
+### Sprint 16: Automação do Build
+- `[Builder] 3:` Criar o workflow de GitHub Actions agendado.
+- `[Builder] 4:` Adicionar passo para upload do artefato.
+
+### Sprint 17: UI de Rota e Deploy do Builder
+- `[Builder] 5:` Adicionar passo para disparar o Rolling Update.
+- `[Mobile] 4:` Implementar a UI para solicitar uma rota.
+
+### Sprint 18: Conexão Final (MVP)
+- `[Mobile] 5:` Implementar a chamada ao `GET /api/route` e desenhar a polilinha.
+- `[QA] 1:` Definir e documentar a estratégia de testes.
+
+### Sprint 19: Fundação K8s
+- `[Infra] 6:` Provisionar cluster Kubernetes (K8s).
+- `[Infra] 11:` Configurar segredos (secrets) no K8s.
+
+### Sprint 20: Deploy no K8s (Backend & IA)
+- `[Infra] 7:` Criar manifestos K8s para `guia-backend`.
+- `[Infra] 8:` Criar manifestos K8s para `guia-report-processing`.
+
+### Sprint 21: Deploy no K8s (Rota & Ingress)
+- `[Infra] 9:` Criar manifestos K8s para `guia-routing-engine`.
+- `[Infra] 10:` Configurar NGINX Ingress Controller.
+
+### Sprint 22: Testes e Saúde do Sistema
+- `[Rota] 10:` Implementar endpoint de health check.
+- `[Rota] 12:` Escrever suíte de testes de integração.
+
+### Sprint 23: Segurança e Testes E2E
+- `[QA] 2:` Implementar suíte de testes E2E.
+- `[SEC] 1:` Configurar políticas de segurança no Ingress.
+
+### Sprint 24: Segurança de Rede
+- `[SEC] 2:` Implementar Network Policies no K8s.
+- `[Web] 1:` Estruturar o projeto base do dashboard.
+
+### Sprint 25: Dashboard Web
+- `[Web] 2:` Implementar a interface do H3.
+- `[Backend] 6:` Implementar endpoint `GET /api/heatmap`.
+
+### Sprint 26: Finalização do Dashboard
+- `[Web] 3:` Implementar a lógica para consumir o endpoint `GET /api/H3`.
+- `[Infra] 12:` Implementar deploy de Prometheus e Grafana.
+
+### Sprint 27: Métricas e Fork Valhalla (Pós-MVP)
+- `[Rota] 11:` Instrumentar o serviço com métricas Prometheus.
+- `[Rota] 1:` Fazer um fork do repositório oficial do Valhalla.
+
+### Sprint 28: Análise Valhalla (Pós-MVP)
+- `[Rota] 2:` Realizar profiling de performance.
+- `[Rota] 3:` Refatorar para remover perfis de custo não utilizados.
+
+### Sprint 29: P&D Valhalla (Pós-MVP)
+- `[Rota] 4:` Pesquisar viabilidade de modificar o `GraphBuilder`.
+
+---
+
+**Duração Total Estimada:** 29 Sprints de 2 semanas = **58 semanas** ~= **15 meses**.
