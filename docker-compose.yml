@@ -1,0 +1,17 @@
+version: '3.8'
+
+services: 
+  db:
+    image: postgis/postgis:17-3.5
+    container_name: guia_db
+    environment:
+      POSTGRES_USER: guia_db
+      POSTGRES_PASSWORD: guia_senha
+      POSTGRES_DB: guia_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - guia_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  guia_postgres_data:

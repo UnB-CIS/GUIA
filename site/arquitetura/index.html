@@ -1,0 +1,969 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IEEE CIS UnB">
+      
+      
+      
+        <link rel="prev" href="../requisitos/">
+      
+      
+        <link rel="next" href="../pipeline-dados/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Arquitetura do Sistema - GUIA - Documentação Técnica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#arquitetura-do-sistema" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="GUIA - Documentação Técnica" class="md-header__button md-logo" aria-label="GUIA - Documentação Técnica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GUIA - Documentação Técnica
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Arquitetura do Sistema
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../requisitos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Requisitos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Arquitetura do Sistema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pipeline-dados/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Pipeline de Dados
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../backend-infra/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend e Infraestrutura
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../roadmap/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GUIA - Documentação Técnica" class="md-nav__button md-logo" aria-label="GUIA - Documentação Técnica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GUIA - Documentação Técnica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#visao-geral-da-arquitetadura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visão Geral da Arquitetadura
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fluxos-de-operacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxos de Operação
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fluxos de Operação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fluxo-de-build-periodico-offline-assincrono" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxo de Build Periódico (Offline Assíncrono)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fluxos-de-usuario-online-sincrono" class="md-nav__link">
+    <span class="md-ellipsis">
+      Fluxos de Usuário (Online Síncrono)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#valhalla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Valhalla
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Valhalla">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tiles-e-hierarquia-de-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tiles e Hierarquia de Dados
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tiles e Hierarquia de Dados">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualizacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualização
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#componentes-internos-do-valhalla" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes Internos do Valhalla
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Componentes Internos do Valhalla">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mjolnir" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mjolnir
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#baldr-a-camada-de-acesso-a-dados" class="md-nav__link">
+    <span class="md-ellipsis">
+      Baldr: A Camada de Acesso a Dados
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tyr-loki-thor-e-odin" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tyr, Loki, Thor e Odin
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estrategia-de-escalonamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Estratégia de Escalonamento
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estratégia de Escalonamento">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-decisao-para-arquiteturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Matriz de Decisão para Arquiteturas
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monolito-replicado-com-orquestracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Monolito Replicado com Orquestração
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline-dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backend e Infraestrutura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="arquitetura-do-sistema">Arquitetura do Sistema</h1>
+<h2 id="visao-geral-da-arquitetadura">Visão Geral da Arquitetadura</h2>
+<p>A arquitetura do sistema foi projetada para separar claramente os processos assíncronos de construção de dados dos processos síncronos de consulta em tempo real. </p>
+<ul>
+<li><strong>Plataforma Online:</strong> Engloba todos os serviços que interagem diretamente com o usuário em tempo real, como o Frontend, o Backend Orchestrator (ou Load Balancer com NGNIX) e o Cluster de Roteamento Valhalla.</li>
+<li><strong>Pipeline de Dados e Map Builder (Offline):</strong> Um conjunto de processos automatizados que rodam em segundo plano. Ele consome dados de fontes externas (OpenStreetMap) e internas (PostGIS com <code>risk_scores</code>) para gerar os artefatos de mapa enriquecidos que a plataforma online utiliza.</li>
+<li><strong>Object Storage (S3, GCS):</strong> Atua como a ponte entre os dois ambientes, armazenando os artefatos de mapa versionados para deploy.</li>
+</ul>
+<h2 id="fluxos-de-operacao">Fluxos de Operação</h2>
+<p>A operação do sistema é dividida em dois fluxos principais e distintos: a alimentação periódica dos dados de risco e a requisição de rotas em tempo real pelo usuário.</p>
+<h3 id="fluxo-de-build-periodico-offline-assincrono">Fluxo de Build Periódico (Offline Assíncrono)</h3>
+<p>Este diagrama detalha o processo automatizado que roda periodicamente (ex: diariamente as 04:00 da manhã ou qualquer horário definido pela equipe) para recriar os mapas do Valhalla, incorporando os <code>risk_scores</code> mais recentes.</p>
+<p><img alt="Fluxo de Build Periódico" src="../assets/fluxo-build-periodico.png" /></p>
+<h3 id="fluxos-de-usuario-online-sincrono">Fluxos de Usuário (Online Síncrono)</h3>
+<p>Este diagrama mostra a sequência de interações para os dois casos de uso principais do usuário: submeter um novo report (que irá alimentar o próximo ciclo de build) e solicitar uma rota segura.</p>
+<p><img alt="Fluxos Sequenciais do Usuário" src="../assets/fluxos-sequenciais-usuario.png" /></p>
+<h2 id="valhalla">Valhalla</h2>
+<p>O motor de roteamento open-source Valhalla é o núcleo do serviço de rotas. Seus componentes e o funcionamento dos dados são detalhados a seguir.</p>
+<h3 id="tiles-e-hierarquia-de-dados">Tiles e Hierarquia de Dados</h3>
+<blockquote>
+<p>TRADUZIDO DE https://valhalla.github.io/valhalla/tiles/</p>
+</blockquote>
+<p>Um <strong>tile</strong> (ou bloco) representa uma pequena seção retangular de uma área geográfica. O mapa inteiro é dividido em uma grade de <em>tiles</em> quadrados, que são arquivos em um formato binário específico contendo todas as informações necessárias para o roteamento.</p>
+<p>Os tiles são organizados em uma hierarquia de três níveis para otimizar buscas de longa distância:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nível de Hierarquia</th>
+<th style="text-align: left;">Tamanho do Tile</th>
+<th style="text-align: left;">Conteúdo Principal</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">4°</td>
+<td style="text-align: left;">Vias expressas (ex: <code>motorway</code>, <code>trunk</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">1°</td>
+<td style="text-align: left;">Vias arteriais (ex: <code>primary</code>, <code>secondary</code>)</td>
+</tr>
+<tr>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">0.25°</td>
+<td style="text-align: left;">Vias locais (ex: <code>residential</code>, <code>service</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Em cada nível, o mundo é dividido usando a caixa delimitadora <code>(-180, -90, 180, 90)</code>, com a ordenação começando do canto inferior esquerdo.</p>
+<h4 id="visualizacao">Visualização</h4>
+<p>A imagem a seguir mostra a divisão do mundo nos tiles de nível 0.</p>
+<p><img alt="Level 0" src="../assets/world_level0.png" /></p>
+<p>Abaixo, exemplos de como regiões específicas são cobertas pelos diferentes níveis de tiles (Nível 0: azul, Nível 1: verde, Nível 2: vermelho).</p>
+<p><strong>Alemanha</strong>
+<img alt="Germany" src="../assets/germany.png" /></p>
+<p><strong>Pensilvânia</strong>
+<img alt="Pennsylvania" src="../assets/pennsylvania.png" /></p>
+<p><strong>Nova Iorque</strong>
+<img alt="NYC" src="../assets/nyc.png" /></p>
+<h3 id="componentes-internos-do-valhalla">Componentes Internos do Valhalla</h3>
+<p>O Valhalla é composto por vários módulos, cada um com uma responsabilidade clara no processo de build e de roteamento.</p>
+<h4 id="mjolnir">Mjolnir</h4>
+<p><strong>Responsabilidade:</strong> Converter dados brutos do formato <code>.osm.pbf</code> para os tiles roteáveis do Valhalla. Mjolnir é o "compilador" do mapa que faz o <code>Extraction, Transformation and Loading (ETL)</code>.</p>
+<p><strong>Localização:</strong> <code>src/mjolnir/</code></p>
+<p><img alt="mijolnir" src="../assets/compiler.png" /></p>
+<p>O processo, orquestrado pela ferramenta <code>valhalla_build_tiles</code>, segue várias etapas:</p>
+<ol>
+<li><strong>Parsing PBF (<code>pbfgraphparser.cc</code>):</strong> Leitura do arquivo <code>.pbf</code> do OpenStreetMap, iterando sobre nós, vias e relações.</li>
+<li><strong>Construção do Grafo (<code>graphbuilder.cc</code>):</strong> Transformação das entidades OSM em um grafo.<ul>
+<li><strong>Nós (Nodes):</strong> Tornam-se vértices.</li>
+<li><strong>Vias (Ways):</strong> Tornam-se arestas (edges). A lógica de custo (velocidade, acesso) é aplicada aqui, configurada via scripts Lua (<code>/lua/graph.lua</code>). <strong>É aqui que o <code>risk_score</code> é incorporado como um peso de custo</strong></li>
+</ul>
+</li>
+<li><strong>Construção da Hierarquia (<code>hierarchybuilder.cc</code>):</strong> Classificação das arestas nos níveis 0, 1 e 2 e geração de "atalhos" (shortcuts) para acelerar a busca.</li>
+<li><strong>Particionamento em Tiles (<code>graphtilebuilder.cc</code>):</strong> Divisão do grafo global na grade de tiles (<code>.gph</code>).</li>
+<li><strong>Artefato Final:</strong> O resultado é um diretório <code>valhalla_tiles</code> (ou <code>valhalla_tiles.tar</code>), que é o "binário" de produção.</li>
+</ol>
+<h4 id="baldr-a-camada-de-acesso-a-dados">Baldr: A Camada de Acesso a Dados</h4>
+<p><strong>Responsabilidade:</strong> Definir e fornecer acesso eficiente às estruturas de dados do grafo.</p>
+<p><strong>Localização:</strong> <code>src/baldr/</code></p>
+<ul>
+<li><strong>Estrutura do Tile (<code>graphtile.h</code>):</strong> Cada arquivo <code>.gph</code> é um bloco binário com um layout denso para acesso rápido aos dados.</li>
+<li><strong><code>GraphId</code> (<code>graphid.h</code>):</strong> Um <code>uint64_t</code> que identifica unicamente qualquer nó no grafo global, codificando o ID do tile, o nível da hierarquia e o índice do nó.</li>
+<li><strong>Acesso e Memória (<code>graphreader.cc</code>):</strong> Utiliza <code>mmap</code> para mapear o arquivo <code>valhalla_tiles.tar</code> no espaço de endereço virtual do processo. O sistema operacional gerencia o carregamento de dados do disco para a RAM sob demanda.</li>
+</ul>
+<h4 id="tyr-loki-thor-e-odin">Tyr, Loki, Thor e Odin</h4>
+<p><img alt="Runtime" src="../assets/runtime.png" /></p>
+<ol>
+<li><strong>Tyr (<code>src/tyr/</code>):</strong> Recebe a requisição HTTP e orquestra o fluxo interno.</li>
+<li><strong>Loki (<code>src/loki/</code>):</strong> O serviço de "matching". Converte as coordenadas da requisição (lat, lon) para os nós/arestas correspondentes no grafo ("snap-to-road").</li>
+<li><strong>Thor (<code>src/thor/</code>):</strong> A engine de busca de caminho. Recebe os nós de Loki e executa os algoritmos de roteamento.<ul>
+<li><strong>Algoritmo (<code>bidirectional_astar.cc</code>):</strong> Utiliza o A* Bidirecional para performance.</li>
+<li><strong>Busca Hierárquica:</strong> A técnica de otimização que "sobe" para as vias principais para trechos longos e "desce" para as vias locais nas pontas da rota.</li>
+</ul>
+</li>
+<li><strong>Odin (<code>src/odin/</code>):</strong> O serviço de "narrativa". Converte o caminho bruto (sequência de <code>GraphId</code>s) retornado pelo Thor em instruções de navegação turn-by-turn.</li>
+</ol>
+<h2 id="estrategia-de-escalonamento">Estratégia de Escalonamento</h2>
+<h3 id="matriz-de-decisao-para-arquiteturas">Matriz de Decisão para Arquiteturas</h3>
+<blockquote>
+<p>Pesquisa feita com <code>Deep Search</code> do Gemni 2.5 pro e <code>Investigar</code> do ChatGPT 4.0/5.0</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Critério</th>
+<th style="text-align: left;">Replicação Monolítica</th>
+<th style="text-align: left;">Sharding Geográfico</th>
+<th style="text-align: left;">Lazy-Loading / Cache Remoto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tempo de Inicialização</strong></td>
+<td style="text-align: left;"><strong>Médio-Alto (1-10 min)</strong><br>Depende do I/O do disco para o <code>mmap</code> inicial.</td>
+<td style="text-align: left;"><strong>Baixo (&lt;2 min)</strong><br>Dataset menor significa inicialização mais rápida.</td>
+<td style="text-align: left;"><strong>Muito Baixo (&lt;10 seg)</strong><br>O custo é transferido para a latência da primeira requisição.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Velocidade de Escalonamento</strong></td>
+<td style="text-align: left;"><strong>Média</strong><br>Limitada pelo tempo de inicialização. Requer over-provisioning.</td>
+<td style="text-align: left;"><strong>Rápida</strong><br>Pods mais leves permitem que o HPA responda mais agilmente.</td>
+<td style="text-align: left;"><strong>Muito Rápida</strong><br>Escalonamento do compute é desacoplado do dado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Eficiência de CPU/Memória</strong></td>
+<td style="text-align: left;"><strong>Alta (se bem dimensionado)</strong><br>O <code>mmap</code> é extremamente otimizado. O "desperdício" é o custo de disco replicado.</td>
+<td style="text-align: left;"><strong>Muito Alta</strong><br>Recursos alocados para a demanda específica de uma região.</td>
+<td style="text-align: left;"><strong>Variável</strong><br>Degradada por I/O de rede; pode criar gargalos no cache remoto.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Complexidade Operacional</strong></td>
+<td style="text-align: left;"><strong>Baixa</strong><br>Deploy padrão. Artefato único. Load balancing stateless.</td>
+<td style="text-align: left;"><strong>Alta</strong><br>Requer um proxy de roteamento L7 e múltiplos artefatos.</td>
+<td style="text-align: left;"><strong>Muito Alta</strong><br>Requer driver customizado e infra de cache robusta.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Isolamento de Falhas</strong></td>
+<td style="text-align: left;"><strong>Médio</strong><br>Falha no pod afeta apenas aquele pod.</td>
+<td style="text-align: left;"><strong>Alto</strong><br>Falha é contida no shard daquela região geográfica.</td>
+<td style="text-align: left;"><strong>Baixo</strong><br>Dependência de um serviço de cache/storage centralizado.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Roteamento Inter-regional</strong></td>
+<td style="text-align: left;"><strong>Nativo e Atômico</strong><br>Performance ótima dentro de um único processo.</td>
+<td style="text-align: left;"><strong>Complexo e Lento</strong><br>Requer costura de resultados entre shards, adicionando latência.</td>
+<td style="text-align: left;"><strong>Nativo (em teoria)</strong><br>Degradado por múltiplas buscas de tiles remotos.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Custo em Escala</strong></td>
+<td style="text-align: left;"><strong>Médio-Alto</strong><br>Custo principal é o armazenamento em bloco (SSD) replicado.</td>
+<td style="text-align: left;"><strong>Médio</strong><br>Economiza em armazenamento, mas adiciona custo do proxy e de engenharia.</td>
+<td style="text-align: left;"><strong>Potencialmente Baixo (em teoria)</strong><br>Custo de engenharia e da infra de cache pode anular a economia.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="monolito-replicado-com-orquestracao">Monolito Replicado com Orquestração</h3>
+<p>Para cobrir o Brasil e escalar para uma alta carga de requisições, a arquitetura de <strong>Replicação Monolítica</strong> é a escolha ideal. A complexidade introduzida pelas outras abordagens não justifica seus benefícios, exceto em escala verdadeiramente global.</p>
+<p><strong>Justificativa Técnica:</strong></p>
+<ol>
+<li><strong>Evita Falácias de Sistemas Distribuídos:</strong> Sharding e Lazy-Loading transformam um problema de computação local em um problema de sistema distribuído, introduzindo latência de rede e complexidade de consistência desnecessariamente.</li>
+<li><strong>Performance Atômica:</strong> O <code>mmap</code> de um arquivo local é uma das operações de I/O mais rápidas possíveis. A transição entre tiles tem latência na ordem de microssegundos a milissegundos, enquanto uma chamada de rede adiciona dezenas a centenas de milissegundos.</li>
+<li><strong>Simplicidade Operacional:</strong> A simplicidade de gerenciar um único artefato de mapa (enriquecido com <code>risk_score</code>) e um único tipo de serviço com um load balancer stateless é um benefício imenso em termos de confiabilidade, depuração e velocidade de desenvolvimento.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
