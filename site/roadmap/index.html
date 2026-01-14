@@ -1,0 +1,1250 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="IEEE CIS UnB">
+      
+      
+      
+        <link rel="prev" href="../backend-infra/">
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.11">
+    
+    
+      
+        <title>Roadmap - GUIA - Documentação Técnica</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.4af4bdda.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#roadmap-de-desenvolvimento" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="GUIA - Documentação Técnica" class="md-header__button md-logo" aria-label="GUIA - Documentação Técnica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GUIA - Documentação Técnica
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Roadmap
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Visão Geral
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../getting-started/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting Started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../requisitos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Requisitos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../arquitetura/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Arquitetura do Sistema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../pipeline-dados/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Pipeline de Dados
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../backend-infra/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend e Infraestrutura
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Roadmap
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="GUIA - Documentação Técnica" class="md-nav__button md-logo" aria-label="GUIA - Documentação Técnica" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GUIA - Documentação Técnica
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visão Geral
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Getting Started
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../requisitos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arquitetura/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Arquitetura do Sistema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pipeline-dados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pipeline de Dados
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-infra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Backend e Infraestrutura
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Roadmap
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#backlog-de-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backlog de Issues
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Backlog de Issues">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#infraestrutura-devops-guia-infra" class="md-nav__link">
+    <span class="md-ellipsis">
+      Infraestrutura &amp; DevOps (guia-infra)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#banco-de-dados-guia-db" class="md-nav__link">
+    <span class="md-ellipsis">
+      Banco de Dados (guia-db)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-guia-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backend (guia-backend)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processamento-de-reports-com-ia-guia-report-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Processamento de Reports com IA (guia-report-processing)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#motor-de-roteamento-guia-routing-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motor de Roteamento (guia-routing-engine)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-builder-job-assincrono-map-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map Builder (Job Assíncrono - map-builder)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplicativo-mobile-guia-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aplicativo Mobile (guia-mobile)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-web-guia-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dashboard Web (guia-web)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qualidade-seguranca-documentacao-curva-de-aprendizagem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Qualidade, Segurança &amp; Documentação CURVA DE APRENDIZAGEM
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#plano-de-sprints-2-semanas-por-sprint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Plano de Sprints (2 semanas por Sprint)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Plano de Sprints (2 semanas por Sprint)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sprint-1-fundacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 1: Fundação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-2-schema-e-migracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 2: Schema e Migração
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-3-ci-e-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 3: CI e Autenticação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-4-dockerizacao-do-backend" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 4: Dockerização do Backend
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-5-inicio-da-ingestao-de-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 5: Início da Ingestão de Reports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-6-fila-de-processamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 6: Fila de Processamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-7-dockerizacao-da-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 7: Dockerização da IA
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-8-autenticacao-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 8: Autenticação Mobile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-9-submissao-de-reports-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 9: Submissão de Reports Mobile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-10-ia-extracao-de-info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 10: IA - Extração de Info
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-11-fundacao-de-roteamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 11: Fundação de Roteamento
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-12-estrutura-da-api-de-rota" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 12: Estrutura da API de Rota
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-13-validacao-e-erros-de-rota" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 13: Validação e Erros de Rota
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-14-populacao-de-dados-e-mapa-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 14: População de Dados e Mapa Mobile
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-15-inicio-do-map-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 15: Início do Map Builder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-16-automacao-do-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 16: Automação do Build
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-17-ui-de-rota-e-deploy-do-builder" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 17: UI de Rota e Deploy do Builder
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-18-conexao-final-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 18: Conexão Final (MVP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-19-fundacao-k8s" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 19: Fundação K8s
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-20-deploy-no-k8s-backend-ia" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 20: Deploy no K8s (Backend &amp; IA)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-21-deploy-no-k8s-rota-ingress" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 21: Deploy no K8s (Rota &amp; Ingress)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-22-testes-e-saude-do-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 22: Testes e Saúde do Sistema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-23-seguranca-e-testes-e2e" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 23: Segurança e Testes E2E
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-24-seguranca-de-rede" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 24: Segurança de Rede
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-25-dashboard-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 25: Dashboard Web
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-26-finalizacao-do-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 26: Finalização do Dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-27-metricas-e-fork-valhalla-pos-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 27: Métricas e Fork Valhalla (Pós-MVP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-28-analise-valhalla-pos-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 28: Análise Valhalla (Pós-MVP)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sprint-29-pd-valhalla-pos-mvp" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sprint 29: P&amp;D Valhalla (Pós-MVP)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="roadmap-de-desenvolvimento">Roadmap de Desenvolvimento</h1>
+<h2 id="backlog-de-issues">Backlog de Issues</h2>
+<h3 id="infraestrutura-devops-guia-infra">Infraestrutura &amp; DevOps (guia-infra)</h3>
+<ul>
+<li><code>[Infra] 1:</code> Configurar ambiente de desenvolvimento local com Docker Compose.</li>
+<li><code>[Infra] 2:</code> Estruturar pipeline de CI base com GitHub Actions.</li>
+<li><code>[Infra] 3:</code> Escrever Dockerfile e pipeline de CI para <code>guia-backend</code>.</li>
+<li><code>[Infra] 4:</code> Escrever Dockerfile e pipeline de CI para <code>guia-report-processing</code>.</li>
+<li><code>[Infra] 5:</code> Escrever Dockerfile e pipeline de CI para <code>guia-routing-engine</code>.</li>
+<li><code>[Infra] 6:</code> Provisionar cluster Kubernetes (K8s) e configurar acesso <code>kubectl</code>. <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Infra] 7:</code> Criar manifestos K8s (Deployment, Service, ConfigMap) para <code>guia-backend</code>. <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Infra] 8:</code> Criar manifestos K8s para <code>guia-report-processing</code>.  <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Infra] 9:</code> Criar manifestos K8s para <code>guia-routing-engine</code> (com PersistentVolumeClaim). <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Infra] 10:</code> Configurar NGINX Ingress Controller para roteamento de APIs.</li>
+<li><code>[Infra] 11:</code> Configurar segredos (secrets) no K8s para credenciais. <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Infra] 12:</code> Implementar deploy de Prometheus e Grafana para monitoramento <strong>OPICIONAL</strong></li>
+</ul>
+<h3 id="banco-de-dados-guia-db">Banco de Dados (guia-db)</h3>
+<ul>
+<li><code>[Dados] 1:</code> Modelagem do Banco de dados com <code>schemas</code> e <code>configs</code> do PostGIS.</li>
+<li><code>[Dados] 2:</code> Finalizar e commitar schema do PostGIS (tabelas: <code>users</code>, <code>reports</code>, <code>h3_risk_index</code>).</li>
+<li><code>[Dados] 3:</code> Implementar pipeline de migração de schema (ex: com Alembic).</li>
+<li><code>[Dados] 4:</code> Desenvolver script para popular a tabela <code>h3_risk_index</code> com a geometria da grade H3.</li>
+</ul>
+<h3 id="backend-guia-backend">Backend (guia-backend)</h3>
+<ul>
+<li><code>[Backend] 1:</code> Implementar endpoints de autenticação JWT (<code>/auth/register</code>, <code>/auth/login</code>).</li>
+<li><code>[Backend] 2:</code> Proteger endpoints da aplicação com middleware de autenticação JWT.</li>
+<li><code>[Backend] 3:</code> Implementar endpoint <code>POST /api/reports</code> para receber metadados de ocorrências.</li>
+<li><code>[Backend] 4:</code> Implementar endpoint para gerar URL de upload pré-assinada para o Object Storage.</li>
+<li><code>[Backend] 5:</code> Implementar a publicação de mensagem na fila (RabbitMQ) após confirmação do upload. <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Backend] 6:</code> Implementar endpoint <code>GET /api/heatmap</code> para servir dados da tabela <code>h3_risk_index</code>.</li>
+</ul>
+<h3 id="processamento-de-reports-com-ia-guia-report-processing">Processamento de Reports com IA (guia-report-processing)</h3>
+<ul>
+<li><code>[IA] 1:</code> Construir o consumidor da fila para escutar novas tarefas de processamento.</li>
+<li><code>[IA] 2:</code> Implementar a integração com o modelo Image-to-Text.</li>
+<li><code>[IA] 3:</code> Implementar a integração com o modelo de Extração de Informação.</li>
+<li><code>[IA] 4:</code> Implementar o algoritmo para cálculo do <code>risk_score</code>.</li>
+<li><code>[IA] 5:</code> Implementar a lógica para salvar/atualizar o <code>risk_score</code> na tabela <code>h3_risk_index</code>.</li>
+</ul>
+<h3 id="motor-de-roteamento-guia-routing-engine">Motor de Roteamento (guia-routing-engine)</h3>
+<ul>
+<li><code>[Rota] 1:</code> Fazer um fork do repositório oficial do Valhalla.</li>
+<li><code>[Rota] 2:</code> Realizar profiling de performance para identificar gargalos no código C++.</li>
+<li><code>[Rota] 3:</code> Refatorar o código para remover perfis de custo não utilizados (ex: bicicleta, pedestre).</li>
+<li><code>[Rota] 4:</code> Pesquisar a viabilidade de modificar o <code>GraphBuilder</code> em C++ para consultar o PostGIS diretamente.</li>
+<li><code>[Rota] 5:</code> Definir o contrato da API (<code>/route</code>) com OpenAPI/Swagger.</li>
+<li><code>[Rota] 6:</code> Estruturar o serviço de API.</li>
+<li><code>[Rota] 7:</code> Implementar a validação de entrada da requisição.</li>
+<li><code>[Rota] 8:</code> Implementar a lógica de proxy para o processo Valhalla.</li>
+<li><code>[Rota] 9:</code> Implementar tratamento de erros e timeouts do Valhalla.</li>
+<li><code>[Rota] 10:</code> Implementar endpoint de health check (<code>/healthz</code>). <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Rota] 11:</code> Instrumentar o serviço com métricas Prometheus. <strong>OPICIONAL</strong></li>
+<li><code>[Rota] 12:</code> Escrever suíte de testes de integração para o fluxo da API.</li>
+</ul>
+<h3 id="map-builder-job-assincrono-map-builder">Map Builder (Job Assíncrono - map-builder)</h3>
+<ul>
+<li><code>[Builder] 1:</code> Criar script <code>enrich_osm_with_risk.py</code>.</li>
+<li><code>[Builder] 2:</code> Criar script <code>valhalla_build_tiles.sh</code>.</li>
+<li><code>[Builder] 3:</code> Criar o workflow de GitHub Actions agendado (Cron). <strong>CURVA DE APRENDIZAGEM</strong></li>
+<li><code>[Builder] 4:</code> Adicionar passo ao workflow para upload do <code>valhalla_tiles.tar</code> para Object Storage.</li>
+<li><code>[Builder] 5:</code> Adicionar passo ao workflow para disparar o Rolling Update via <code>kubectl apply</code>.</li>
+</ul>
+<h3 id="aplicativo-mobile-guia-mobile">Aplicativo Mobile (guia-mobile)</h3>
+<ul>
+<li><code>[Mobile] 1:</code> Implementar telas e fluxo de autenticação.</li>
+<li><code>[Mobile] 2:</code> Implementar fluxo de submissão de reports.</li>
+<li><code>[Mobile] 3:</code> Implementar a interface do mapa (com H3 Uber, utilizar exemplo da 99).</li>
+<li><code>[Mobile] 4:</code> Implementar a UI para solicitar uma rota.</li>
+<li><code>[Mobile] 5:</code> Implementar a chamada ao <code>GET /api/route</code> e desenhar a polilinha no mapa.</li>
+</ul>
+<h3 id="dashboard-web-guia-web">Dashboard Web (guia-web)</h3>
+<ul>
+<li><code>[Web] 1:</code> Estruturar o projeto base do dashboard (ex: com React, ou HTML puro).</li>
+<li><code>[Web] 2:</code> Implementar a interface do H3.</li>
+<li><code>[Web] 3:</code> Implementar a lógica para consumir o endpoint <code>GET /api/H3</code>.</li>
+</ul>
+<h3 id="qualidade-seguranca-documentacao-curva-de-aprendizagem">Qualidade, Segurança &amp; Documentação <strong>CURVA DE APRENDIZAGEM</strong></h3>
+<ul>
+<li><code>[QA] 1:</code> Definir e documentar a estratégia de testes (Unit, Integration, E2E).</li>
+<li><code>[QA] 2:</code> Implementar suíte de testes E2E que simula o fluxo completo.</li>
+<li><code>[SEC] 1:</code> Configurar políticas de segurança no Ingress (ex: Rate Limiting).</li>
+<li><code>[SEC] 2:</code> Implementar Network Policies no K8s para restringir a comunicação entre serviços.</li>
+<li><code>[DOC] 1:</code> Gerar e publicar a documentação da API (via OpenAPI/Swagger).</li>
+</ul>
+<h2 id="plano-de-sprints-2-semanas-por-sprint">Plano de Sprints (2 semanas por Sprint)</h2>
+<h3 id="sprint-1-fundacao">Sprint 1: Fundação</h3>
+<ul>
+<li><code>[Infra] 1:</code> Configurar ambiente de desenvolvimento local.</li>
+<li><code>[Dados] 1:</code> Modelagem do Banco de dados.</li>
+</ul>
+<h3 id="sprint-2-schema-e-migracao">Sprint 2: Schema e Migração</h3>
+<ul>
+<li><code>[Dados] 2:</code> Finalizar e commitar schema do PostGIS.</li>
+<li><code>[Dados] 3:</code> Implementar pipeline de migração de schema.</li>
+</ul>
+<h3 id="sprint-3-ci-e-autenticacao">Sprint 3: CI e Autenticação</h3>
+<ul>
+<li><code>[Infra] 2:</code> Estruturar pipeline de CI base.</li>
+<li><code>[Backend] 1:</code> Implementar endpoints de autenticação JWT.</li>
+</ul>
+<h3 id="sprint-4-dockerizacao-do-backend">Sprint 4: Dockerização do Backend</h3>
+<ul>
+<li><code>[Infra] 3:</code> Escrever Dockerfile e pipeline de CI para <code>guia-backend</code>.</li>
+<li><code>[Backend] 2:</code> Proteger endpoints com middleware JWT.</li>
+</ul>
+<h3 id="sprint-5-inicio-da-ingestao-de-reports">Sprint 5: Início da Ingestão de Reports</h3>
+<ul>
+<li><code>[Backend] 3:</code> Implementar endpoint <code>POST /api/reports</code>.</li>
+<li><code>[Backend] 4:</code> Implementar endpoint para gerar URL de upload pré-assinada.</li>
+</ul>
+<h3 id="sprint-6-fila-de-processamento">Sprint 6: Fila de Processamento</h3>
+<ul>
+<li><code>[Backend] 5:</code> Implementar a publicação de mensagem na fila (RabbitMQ).</li>
+<li><code>[IA] 1:</code> Construir o consumidor da fila.</li>
+</ul>
+<h3 id="sprint-7-dockerizacao-da-ia">Sprint 7: Dockerização da IA</h3>
+<ul>
+<li><code>[Infra] 4:</code> Escrever Dockerfile e pipeline de CI para <code>guia-report-processing</code>.</li>
+<li><code>[IA] 5:</code> Implementar a lógica para salvar/atualizar <code>risk_score</code> (mockado).</li>
+</ul>
+<h3 id="sprint-8-autenticacao-mobile">Sprint 8: Autenticação Mobile</h3>
+<ul>
+<li><code>[Mobile] 1:</code> Implementar telas e fluxo de autenticação.</li>
+<li><code>[DOC] 1:</code> Gerar e publicar a documentação da API.</li>
+</ul>
+<h3 id="sprint-9-submissao-de-reports-mobile">Sprint 9: Submissão de Reports Mobile</h3>
+<ul>
+<li><code>[Mobile] 2:</code> Implementar fluxo de submissão de reports.</li>
+<li><code>[IA] 2:</code> Implementar a integração com o modelo Image-to-Text.</li>
+</ul>
+<h3 id="sprint-10-ia-extracao-de-info">Sprint 10: IA - Extração de Info</h3>
+<ul>
+<li><code>[IA] 3:</code> Implementar a integração com o modelo de Extração de Informação.</li>
+<li><code>[IA] 4:</code> Implementar o algoritmo para cálculo do <code>risk_score</code>.</li>
+</ul>
+<h3 id="sprint-11-fundacao-de-roteamento">Sprint 11: Fundação de Roteamento</h3>
+<ul>
+<li><code>[Infra] 5:</code> Escrever Dockerfile e pipeline de CI para <code>guia-routing-engine</code>.</li>
+<li><code>[Rota] 5:</code> Definir o contrato da API (<code>/route</code>).</li>
+</ul>
+<h3 id="sprint-12-estrutura-da-api-de-rota">Sprint 12: Estrutura da API de Rota</h3>
+<ul>
+<li><code>[Rota] 6:</code> Estruturar o serviço de API.</li>
+<li><code>[Rota] 8:</code> Implementar a lógica de proxy para o processo Valhalla.</li>
+</ul>
+<h3 id="sprint-13-validacao-e-erros-de-rota">Sprint 13: Validação e Erros de Rota</h3>
+<ul>
+<li><code>[Rota] 7:</code> Implementar a validação de entrada da requisição.</li>
+<li><code>[Rota] 9:</code> Implementar tratamento de erros e timeouts do Valhalla.</li>
+</ul>
+<h3 id="sprint-14-populacao-de-dados-e-mapa-mobile">Sprint 14: População de Dados e Mapa Mobile</h3>
+<ul>
+<li><code>[Dados] 4:</code> Desenvolver script para popular a tabela <code>h3_risk_index</code>.</li>
+<li><code>[Mobile] 3:</code> Implementar a interface do mapa.</li>
+</ul>
+<h3 id="sprint-15-inicio-do-map-builder">Sprint 15: Início do Map Builder</h3>
+<ul>
+<li><code>[Builder] 1:</code> Criar script <code>enrich_osm_with_risk.py</code>.</li>
+<li><code>[Builder] 2:</code> Criar script <code>valhalla_build_tiles.sh</code>.</li>
+</ul>
+<h3 id="sprint-16-automacao-do-build">Sprint 16: Automação do Build</h3>
+<ul>
+<li><code>[Builder] 3:</code> Criar o workflow de GitHub Actions agendado.</li>
+<li><code>[Builder] 4:</code> Adicionar passo para upload do artefato.</li>
+</ul>
+<h3 id="sprint-17-ui-de-rota-e-deploy-do-builder">Sprint 17: UI de Rota e Deploy do Builder</h3>
+<ul>
+<li><code>[Builder] 5:</code> Adicionar passo para disparar o Rolling Update.</li>
+<li><code>[Mobile] 4:</code> Implementar a UI para solicitar uma rota.</li>
+</ul>
+<h3 id="sprint-18-conexao-final-mvp">Sprint 18: Conexão Final (MVP)</h3>
+<ul>
+<li><code>[Mobile] 5:</code> Implementar a chamada ao <code>GET /api/route</code> e desenhar a polilinha.</li>
+<li><code>[QA] 1:</code> Definir e documentar a estratégia de testes.</li>
+</ul>
+<h3 id="sprint-19-fundacao-k8s">Sprint 19: Fundação K8s</h3>
+<ul>
+<li><code>[Infra] 6:</code> Provisionar cluster Kubernetes (K8s).</li>
+<li><code>[Infra] 11:</code> Configurar segredos (secrets) no K8s.</li>
+</ul>
+<h3 id="sprint-20-deploy-no-k8s-backend-ia">Sprint 20: Deploy no K8s (Backend &amp; IA)</h3>
+<ul>
+<li><code>[Infra] 7:</code> Criar manifestos K8s para <code>guia-backend</code>.</li>
+<li><code>[Infra] 8:</code> Criar manifestos K8s para <code>guia-report-processing</code>.</li>
+</ul>
+<h3 id="sprint-21-deploy-no-k8s-rota-ingress">Sprint 21: Deploy no K8s (Rota &amp; Ingress)</h3>
+<ul>
+<li><code>[Infra] 9:</code> Criar manifestos K8s para <code>guia-routing-engine</code>.</li>
+<li><code>[Infra] 10:</code> Configurar NGINX Ingress Controller.</li>
+</ul>
+<h3 id="sprint-22-testes-e-saude-do-sistema">Sprint 22: Testes e Saúde do Sistema</h3>
+<ul>
+<li><code>[Rota] 10:</code> Implementar endpoint de health check.</li>
+<li><code>[Rota] 12:</code> Escrever suíte de testes de integração.</li>
+</ul>
+<h3 id="sprint-23-seguranca-e-testes-e2e">Sprint 23: Segurança e Testes E2E</h3>
+<ul>
+<li><code>[QA] 2:</code> Implementar suíte de testes E2E.</li>
+<li><code>[SEC] 1:</code> Configurar políticas de segurança no Ingress.</li>
+</ul>
+<h3 id="sprint-24-seguranca-de-rede">Sprint 24: Segurança de Rede</h3>
+<ul>
+<li><code>[SEC] 2:</code> Implementar Network Policies no K8s.</li>
+<li><code>[Web] 1:</code> Estruturar o projeto base do dashboard.</li>
+</ul>
+<h3 id="sprint-25-dashboard-web">Sprint 25: Dashboard Web</h3>
+<ul>
+<li><code>[Web] 2:</code> Implementar a interface do H3.</li>
+<li><code>[Backend] 6:</code> Implementar endpoint <code>GET /api/heatmap</code>.</li>
+</ul>
+<h3 id="sprint-26-finalizacao-do-dashboard">Sprint 26: Finalização do Dashboard</h3>
+<ul>
+<li><code>[Web] 3:</code> Implementar a lógica para consumir o endpoint <code>GET /api/H3</code>.</li>
+<li><code>[Infra] 12:</code> Implementar deploy de Prometheus e Grafana.</li>
+</ul>
+<h3 id="sprint-27-metricas-e-fork-valhalla-pos-mvp">Sprint 27: Métricas e Fork Valhalla (Pós-MVP)</h3>
+<ul>
+<li><code>[Rota] 11:</code> Instrumentar o serviço com métricas Prometheus.</li>
+<li><code>[Rota] 1:</code> Fazer um fork do repositório oficial do Valhalla.</li>
+</ul>
+<h3 id="sprint-28-analise-valhalla-pos-mvp">Sprint 28: Análise Valhalla (Pós-MVP)</h3>
+<ul>
+<li><code>[Rota] 2:</code> Realizar profiling de performance.</li>
+<li><code>[Rota] 3:</code> Refatorar para remover perfis de custo não utilizados.</li>
+</ul>
+<h3 id="sprint-29-pd-valhalla-pos-mvp">Sprint 29: P&amp;D Valhalla (Pós-MVP)</h3>
+<ul>
+<li><code>[Rota] 4:</code> Pesquisar viabilidade de modificar o <code>GraphBuilder</code>.</li>
+</ul>
+<hr />
+<p><strong>Duração Total Estimada:</strong> 29 Sprints de 2 semanas = <strong>58 semanas</strong> ~= <strong>15 meses</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "toc.integrate"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
